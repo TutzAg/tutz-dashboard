@@ -1,12 +1,13 @@
 <?php
-/*
-Plugin Name: [TUTZ] Dashboard
-Plugin URI:  https://tutzagencia.com.br/plugin-dashboard
-Description: Painel de Funções da TUTZ Agência.
-Version:     1.0
-Author:      Tutz Agência
-Author URI:  https://tutzagencia.com.br
-*/
+/**
+ * Plugin Name: [TUTZ] Dashboard
+ * Plugin URI: https://github.com/TutzAg/tutz-dashboard
+ * Description: Plugin oficial da TUTZ Agência com múltiplas funções administrativas.
+ * Version: 1.1
+ * Author: TUTZ Agência
+ * Author URI: https://tutzagencia.com.br
+ */
+
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Proteção contra acesso direto
