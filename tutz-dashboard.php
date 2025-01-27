@@ -48,10 +48,11 @@ require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/functions-minify-js.php';
 
 
 
-if (is_admin()) {
+if (is_admin() && file_exists(TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/github-updater.php')) {
     require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/github-updater.php';
     new TUTZ_Dashboard_Updater(__FILE__, 'https://github.com/TutzAg/tutz-dashboard');
 }
+
 
 
 // Include MKT category functions
