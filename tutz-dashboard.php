@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define constantes
-define( 'TUTZ_DASHBOARD_VERSION', '1.0' );
+define( 'TUTZ_DASHBOARD_VERSION', '1.1' );
 define( 'TUTZ_DASHBOARD_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TUTZ_DASHBOARD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
