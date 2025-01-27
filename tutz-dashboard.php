@@ -39,3 +39,16 @@ function tutz_dashboard_deactivate() {
     // Aqui você pode remover opções ou executar ações ao desativar
 }
 register_deactivation_hook( __FILE__, 'tutz_dashboard_deactivate' );
+
+
+// Include new features
+require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/functions-whatsapp-button.php';
+require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/functions-minify-css.php';
+require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/functions-minify-js.php';
+
+
+
+if (is_admin()) {
+    require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/github-updater.php';
+    new TUTZ_Dashboard_Updater(__FILE__, 'https://github.com/seu-usuario/seu-repositorio');
+}
