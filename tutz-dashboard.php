@@ -52,3 +52,7 @@ if (is_admin()) {
     require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/github-updater.php';
     new TUTZ_Dashboard_Updater(__FILE__, 'https://github.com/seu-usuario/seu-repositorio');
 }
+
+
+// Include MKT category functions
+require_once TUTZ_DASHBOARD_PLUGIN_DIR . 'includes/functions-mkt.php';
