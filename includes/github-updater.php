@@ -1,8 +1,5 @@
 
 <?php
-
-new TUTZ_Dashboard_Updater(__FILE__, 'https://github.com/TutzAg/tutz-dashboard');
-
 if (!class_exists('TUTZ_Dashboard_Updater')) {
     class TUTZ_Dashboard_Updater {
         private $plugin_file;
@@ -69,5 +66,10 @@ if (!class_exists('TUTZ_Dashboard_Updater')) {
             return $result;
         }
     }
+}
+
+// Initialize the updater
+if (is_admin()) {
+    new TUTZ_Dashboard_Updater(__FILE__, 'https://github.com/TutzAg/tutz-dashboard');
 }
 ?>
