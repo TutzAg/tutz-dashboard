@@ -1,4 +1,3 @@
-
 <?php
 if (!class_exists('TUTZ_Dashboard_Updater')) {
     class TUTZ_Dashboard_Updater {
@@ -20,12 +19,23 @@ if (!class_exists('TUTZ_Dashboard_Updater')) {
                 return $transient;
             }
 
+            // Realiza a chamada à API do GitHub
             $response = wp_remote_get("{$this->github_url}/releases/latest");
+
+            // Verifica se houve erro na chamada
             if (is_wp_error($response)) {
                 return $transient;
             }
 
+            // Decodifica o corpo da resposta
             $data = json_decode(wp_remote_retrieve_body($response));
+
+            // Verifica se os dados estão presentes e acessíveis
+            if (!$data || !isset($data->tag_name)) {
+                return $transient;
+            }
+
+            // Compara a versão e adiciona ao transiente, se necessário
             if (version_compare($data->tag_name, TUTZ_DASHBOARD_VERSION, '>')) {
                 $transient->response[$this->plugin_slug] = (object) [
                     'slug' => $this->plugin_slug,
@@ -37,6 +47,7 @@ if (!class_exists('TUTZ_Dashboard_Updater')) {
 
             return $transient;
         }
+
 
         public function plugin_info($result, $action, $args) {
             if ($action !== 'plugin_information' || $args->slug !== $this->plugin_slug) {
